@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap5 %}
+
+
+   
+{% block content %}
+
+<div class="container">
+
+
+      <form method="POST"  action="#" class="form m-5 " enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                  
+                    {% bootstrap_form form %}
+                    
+                    <button type="submit" class="btn btn-primary" > Register </button>
+                </div>
+
+                </form>
+{% endblock %}
+

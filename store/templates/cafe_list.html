@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+    <div class="div bg-light">
+   <section>
+       <div class="up_section  " style=" background-color:#F9F3EE ; align-items: center;"   >
+           <div class="container"  style="padding: 8% 0; " >
+               <h1 style="font-size:50px;"> U are not late !</h1>
+               <h2> Take your time seeing our list </h2>
+               <h1 style=" font-weight:bold ; color: #F9CEEE; "> Or </h1>
+               <h3 >help us and add today's favorite place</h3>
+               <a class=" btn btn-dark btn-lg " href="{% url 'cafe:add_cafe' %}"> ADD CAFE </a>
+
+              
+       </div>
+          
+       </div>
+   </section>
+   <!-- cafe list -->
+   <section class="">
+       <div class="container mt-5">
+           <div class="container mb-5">
+            <!-- search form -->
+        <form  method="POST" action="{% url 'cafe:search_page' %}">
+            {% csrf_token %}
+            <h3>Sraech the site : </h3>
+          
+            <input class="form-control me-2" type="search " placeholder="Search for cafe" aria-label="search" name="searched">  
+           <button class="btn " type="submit">SEARCH </button> 
+
+        </form>
+
+           </div>
+    
+           
+           <div class="row  gy-4  " style=" justify-content: space-between ; padding: 5px;">
+            {% for cafe in cafe_list %}
+               <div class="col col-lg-4 col-md-6 col-sm-12 p-5  ">
+        <div class=" card  d-flex mb-5 h-100" style="width: 25rem; background-color:#F9F3EE ; box-shadow: 0 0 5px 0 rgba(22, 22, 26, .25);">
+            <img src="{{ cafe.picture.url }}" class="card-img-top img-fluid" style="width: 100%;
+            height: 20vw;
+            object-fit: cover;" alt="...">
+            <div class="card-body text-center ">
+              <h5 class="card-title">{{cafe.name }}</h5>
+              <p class="card-text"> <i class="fa-solid fa-location-dot px-1"></i> {{cafe.city}}</p>
+              <p class="card-text"> <i class="fa-solid fa-signature"></i> {{cafe.signture}}</p>
+              <p class="card-text"> <i class="fa-solid fa-clock px-1"></i>{{cafe.working_hours}}</p>
+             
+              <p class="card-text"> author :{{cafe.user}}</p>
+              <a href="{% url 'cafe:cafe_detail' cafe.slug %}" class="btn "> See Details </a>
+            </div>
+        </div>
+          </div>
+          {% endfor %}
+        </div>
+    {% for rating in rating %}
+    {{rating.cafe_name}}
+    {{rating.rating}}
+    {{rating.created_by}}
+    {{rating.content}}
+    {{rating.created_at}}
+    {% endfor %}
+       </div>
+       
+   </section>>
+</div>
+
+{% endblock %}

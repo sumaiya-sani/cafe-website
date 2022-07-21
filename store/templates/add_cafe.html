@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap5 %}
+
+
+   
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="container">
+
+
+      <form method="POST"  action="#" class="form m-5 " enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                  
+                    {% bootstrap_form form %}
+                    
+                    <button type="submit" class="btn "> Submit </button>
+                </div>
+
+                </form>
+       {% else %}
+<div class="container p-5 m-5">
+     <h3 class=""> Hi U need to log in ! </h3>  
+     <a href="#" class="btn "> LOG IN   </a>
+     <h3> Or sign up with new account </h3>
+     <a href="#" class="btn "> SIGN UP </a>
+
+    </div>
+{% endif %}
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+    <!-- navbar -->
+   
+{% block content %}
+   
+      <!-- hero -->
+      <div class="hero">
+     <div class="container container-hero ">
+       <h1 class="lead"> The home of your best<span> Cafe </span>  </h1>
+       <p>
+         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae quam consequatur blanditiis commodi enim quisquam expedita ipsam animi, aspernatur voluptatum molestias officia tenetur dignissimos aut sit eius quod vero deserunt.
+
+       </p>
+       <div>
+         <div class="button-hero">
+      <a class=" btn btn-dark btn-lg " href="{% url 'cafe:cafe_list' %}"> SEE MORE</a>  
+      <a class=" btn btn-dark btn-lg " href="{% url 'cafe:add_cafe' %}"> ADD CAFE </a>  
+      </div>
+       </div>
+
+
+     </div>
+     </div>
+     <!-- intro -->
+     <section>
+       <div class="container-fluid  bg-light ">
+         <div class="row">
+           <div class="col col-lg-6">
+            <img  class=" rounded-circle " style=" float: right; " src="{% static 'intro.png' %}" />
+
+           </div>
+           <div class="col col-lg-6 intro">
+            <h3> Nothing <br> like <br>having <br> a caffee with friends  </h3>
+            <div class="btn btn-dark btn-lg ">SEE TODAY SUGGESTION </div>
+           </div>
+          
+      
+         
+      
+          
+         
+        </div>
+       </div>
+       
+     </section>
+     <!--  footer -->
+     <footer>
+       <div class="container  footer- p-5  ">
+         <h4> We share an idea , U can share yours too !</h4>
+         <h3> Contact us </h3>
+         <div class="container mt-4 ">
+       
+          <a href="#"><i class="fa-brands fa-twitter fa-2xl"></i> </a>
+           <a href="#"> <i class="fa-brands fa-instagram fa-2xl"></i></a>
+
+           
+         </div>
+       </div>
+     </footer>
+ 
+{% endblock %}

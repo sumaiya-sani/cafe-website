@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.hero{
+    background-color: #F9F3EE;
+}
+.hero h1 {
+    font-size:50px;
+    font-weight: bold;
+    color:#000000 ;
+}
+.hero p {
+   font-size: 20px;
+   margin-top: 20px;
+   color:#000000;
+}
+.hero span {
+    color: #97C4B8;
+    font-size: 70px;
+}
+.container-hero {
+    padding: 200px;
+}
+
+.btn{
+    margin: 20px 10px;
+    padding: 20px 30px;
+    border-radius: 40px;
+    justify-content: space-between;
+    color: #F9CEEE;
+    background-color: #97C4B8;
+    border: none;
+    font-weight: 700;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    
+}
+.intro{
+
+padding-top:400px;
+padding-left: 200px;
+}
+.intro h3{
+
+    font-size:50px;
+}
+.footer-{
+  
+  padding: 30px;
+  text-align: center;
+
+}
+.footer- a {
+    text-decoration: none; 
+    color: #F9CEEE;
+    justify-content: space-around;
+    padding: 10px;
+    
+   
+}
+footer{
+    background-color: #F9F3EE;
+}
+.footer{
+    background-color:#97C4B8;
+   
+    text-align: center;
+    padding: 20px;
+}
+
+.navbar-nav{
+    color: #F9CEEE;
+}
+/* cafe_list */
+

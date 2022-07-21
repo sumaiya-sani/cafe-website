@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap5 %}
+
+
+   
+{% block content %}
+
+<div class=" p-5 "style="background-color:#F9F3EE;" >
+    <div class="container align-items-center m-5">
+    {% if searched %}
+   <h3> You are searched for {{searched}} </h3>
+   {% for search in search_pages %}
+   <a href="{% url 'cafe:cafe_detail' search.slug  %}"  > {{search}} </a>
+   
+       <h1 class="lead"> See the details </h1> <a href="{% url 'cafe:cafe_detail' search.slug  %}" >  <img  class="img-fluid " style="width:300px" src="{{search.picture.url}}" /></a></br>
+       <div class="mt-5">
+        <h1 class="lead"> The cafe place is : {{search.city}}  </h1>
+
+
+      
+    </div>
+    {% endfor %}
+    {% else %}
+    <h3> You not search for anything </h3>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

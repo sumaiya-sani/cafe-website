@@ -1,0 +1,122 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap5 %}
+
+
+   
+{% block content %}
+
+
+    <div class="container  py-5 ">
+        <div class="container text-center my-5 pb-5">
+            <h1> {{cafe_slug.name }} </h1>
+                <p class="lead large m-5"> {{cafe_slug.disc}} </p>
+              
+
+        </div>
+        <div class="row ">
+            <div class="col col-lg-3 col-md-12">
+        <div class=" card d-flex mb-5 h-100" style="width: 25rem; background-color:#F9F3EE ; box-shadow: 0 0 5px 0 rgba(22, 22, 26, .25);">
+            <img src="{{cafe_slug.picture.url }}" class="card-img-top img-fluid" style="width: 100%;
+            height: 40vw;
+            object-fit: cover;" alt="...">
+            <div class="card-body text-center mt-5 ">
+                <h5 class="card-title">{{cafe_slug.name }}</h5>
+                <p class="card-text"> <i class="fa-solid fa-location-dot px-1"></i> {{cafe_slug.city}}</p>
+                <p class="card-text"> <i class="fa-solid fa-signature"></i> {{cafe_slug.signture}}</p>
+                <p class="card-text"> <i class="fa-solid fa-clock px-1"></i>{{cafe_slug.working_hours}}</p>
+                
+                <p class="card-text"> author :{{cafe_slug.user}}</p>
+            </div>
+            </div>
+        </div>
+        <div class="col col-lg-9 col-md-12 bg-light p-5   ">
+            <div class=" text-center my-5 pb-5 ">
+                    
+                <section>
+                    <div class="container">
+                        <div class="row d-flex justify-content-center ">
+                        <div class="col-md-12 col-lg-12 col-xl-8">
+                            {% for comment in cafe_slug.comments.all %}
+                            <div class="card"  >
+                            <div class="card-body">
+                                <div class="d-flex flex-start align-items-center">
+                                {% if comment.user_picture %}
+                                <img class="rounded-circle shadow-1-strong me-3"
+
+                                    src="{{comment.user_picture.url }}" alt="avatar" width="60"
+                                    height="60" />
+                                    {% else %}
+                                    <img class="rounded-circle shadow-1-strong me-3"
+
+                                    src="{% static 'user.png' %}" alt="avatar" width="60"
+                                    height="60" />
+                                    {% endif %}
+                                
+                                <div>
+                                    
+                                    <h6 class="fw-bold  mb-1  " style="color : #F9CEEE; display: inline;" >{{ comment.created_by }}</h6>
+                                    <p class="text small mb-0  " style="color : #97C4B8; display: inline;" > Rating {{ comment.rating }}/6</p> 
+                                    <p class="text-muted small mb-0">
+                                    {{comment.created_at}}
+                                    </p>
+                                </div>
+                                </div>
+            
+                                <p class="mt-3 mb-4 pb-2">
+                                {{comment.content}}
+                                </p>
+                
+                                </div>
+                            
+                                </div>
+                            {% endfor %}
+                            </div>
+        
+                            <div  >
+                            <h3 style="" class=" mt-3 lead">Review this cafe  </h3>
+                            <div class="form-group "  >
+                                {% if request.user.is_authenticated %} 
+                                    <form method="POST"  action="{% url 'store:cafe_detail' cafe_slug.slug %} " class="form m-5 " enctype="multipart/form-data">
+                                        {% csrf_token %}
+        
+                                        {% bootstrap_form form %}
+                                        
+                                        <button type="submit" class="btn "> Submit </button>
+                                    </div>
+                    
+    
+                                </form>
+                            
+                    
+                                {% endif %}
+                            </div>
+                    
+
+                        </div>
+                    </div>
+                    </div>
+                    
+                  
+                       
+                  </section>
+
+                
+                </div>
+            </div>
+           
+ 
+            </div>
+        </div>
+            
+    </div>
+</div>
+
+    </div>
+    
+
+   
+
+{% endblock %}
